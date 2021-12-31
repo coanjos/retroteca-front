@@ -14,4 +14,8 @@ export class JogosService {
   listar(): Observable<jogo[]> {
     return this.httpClient.get<jogo[]>(`${environment.retrotecaApiUrl}/jogos`);
   }
+
+  registrar(jogo: jogo): Observable<jogo> {
+    return this.httpClient.post<jogo>(`${environment.retrotecaApiUrl}/jogos`, jogo);
+  }
 }
