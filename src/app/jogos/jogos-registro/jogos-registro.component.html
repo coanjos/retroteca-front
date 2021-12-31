@@ -1,0 +1,23 @@
+<form [formGroup]="jogoForm" (ngSubmit)="onSubmit()">
+
+    <label for="titulo">Título: </label>
+    <input id="titulo" type="text" formControlName="titulo">
+  
+    <label for="descricao">Descrição: </label>
+    <textarea id="descricao" formControlName="descricao"></textarea>
+
+    <label for="ano">Ano: </label>
+    <input id="ano" type="text" formControlName="ano">
+  
+    <label for="autores">Autores: </label>
+    <input id="autores" type="text" formControlName="autores">
+
+    <label for="generos">Gêneros: </label>
+    <input id="generos" type="text" formControlName="generos">
+  
+    <label for="capas">Capas: </label>
+    <input id="capas" type="text" formControlName="capas">
+
+    <button>Registrar</button>
+  
+  </form>

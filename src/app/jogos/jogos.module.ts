@@ -6,14 +6,17 @@ import { JogosRoutingModule } from './jogos-routing.module';
 import { JogosListaComponent } from './jogos-lista/jogos-lista.component';
 import { JogosListaItemComponent } from './jogos-lista-item/jogos-lista-item.component';
 import { JogosDetalheComponent } from './jogos-detalhe/jogos-detalhe.component';
+import { JogosRegistroComponent } from './jogos-registro/jogos-registro.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [JogosListaComponent, JogosListaItemComponent, JogosDetalheComponent],
+  declarations: [JogosListaComponent, JogosListaItemComponent, JogosDetalheComponent, JogosRegistroComponent],
   imports: [
     CommonModule,
     JogosRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class JogosModule { }
