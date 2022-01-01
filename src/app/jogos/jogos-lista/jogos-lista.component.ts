@@ -16,4 +16,8 @@ export class JogosListaComponent implements OnInit {
     this.jogosService.listar().subscribe(listaJogos => this.jogos = listaJogos);
   }
 
+  apagar(id?: number): void {
+    this.jogosService.apagar(id).subscribe()
+  }
+
 }

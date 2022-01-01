@@ -18,4 +18,8 @@ export class JogosService {
   registrar(jogo: jogo): Observable<jogo> {
     return this.httpClient.post<jogo>(`${environment.retrotecaApiUrl}/jogos`, jogo);
   }
+
+  apagar(id?: number): Observable<jogo> {
+    return this.httpClient.delete<jogo>(`${environment.retrotecaApiUrl}/jogos/${id}`)
+  }
 }
