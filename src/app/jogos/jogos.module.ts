@@ -8,10 +8,11 @@ import { JogosListaItemComponent } from './jogos-lista-item/jogos-lista-item.com
 import { JogosDetalheComponent } from './jogos-detalhe/jogos-detalhe.component';
 import { JogosRegistroComponent } from './jogos-registro/jogos-registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JogosEdicaoComponent } from './jogos-edicao/jogos-edicao.component';
 
 
 @NgModule({
-  declarations: [JogosListaComponent, JogosListaItemComponent, JogosDetalheComponent, JogosRegistroComponent],
+  declarations: [JogosListaComponent, JogosListaItemComponent, JogosDetalheComponent, JogosRegistroComponent, JogosEdicaoComponent],
   imports: [
     CommonModule,
     JogosRoutingModule,

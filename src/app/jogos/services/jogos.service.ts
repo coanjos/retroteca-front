@@ -15,11 +15,19 @@ export class JogosService {
     return this.httpClient.get<jogo[]>(`${environment.retrotecaApiUrl}/jogos`);
   }
 
+  get(id: string): Observable<jogo> {
+    return this.httpClient.get<jogo>(`${environment.retrotecaApiUrl}/jogos/${id}`);
+  }
+
   registrar(jogo: jogo): Observable<jogo> {
     return this.httpClient.post<jogo>(`${environment.retrotecaApiUrl}/jogos`, jogo);
   }
 
   apagar(id: string): Observable<jogo> {
     return this.httpClient.delete<jogo>(`${environment.retrotecaApiUrl}/jogos/${id}`)
+  }
+
+  atualizar(id: string, jogo: jogo): Observable<jogo>{
+    return this.httpClient.patch<jogo>(`${environment.retrotecaApiUrl}/jogos/${id}`, jogo);
   }
 }

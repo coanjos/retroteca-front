@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { JogosService } from '../services/jogos.service';
 
 @Component({
@@ -18,13 +19,16 @@ export class JogosRegistroComponent implements OnInit {
   })
 
 
-  constructor(private jogoService: JogosService) { }
+  constructor(
+    private jogoService: JogosService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    this.jogoService.registrar(this.jogoForm.value).subscribe();
+    this.jogoService.registrar(this.jogoForm.value).subscribe(data => this.router.navigateByUrl('/'));
   }
 
 }

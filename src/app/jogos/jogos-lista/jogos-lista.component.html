@@ -7,6 +7,7 @@
 
     <h2>{{ jogo._id }}</h2>
 
+    <button [routerLink]="['/jogos/edicao']" [queryParams]="{ id: jogo._id }">Editar</button>
     <button (click)="apagar(jogo._id)">Apagar</button>
-    <!-- <button (click)="editar(jogo._id)">Editar</button> -->
+    
 </div>
