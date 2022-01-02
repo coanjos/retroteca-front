@@ -4,6 +4,7 @@ import { JogosDetalheComponent } from './jogos-detalhe/jogos-detalhe.component';
 import { JogosEdicaoComponent } from './jogos-edicao/jogos-edicao.component';
 import { JogosListaComponent } from './jogos-lista/jogos-lista.component';
 import { JogosRegistroComponent } from './jogos-registro/jogos-registro.component';
+import { JogoResolver } from './resolvers/jogo.resolver';
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'edicao',
-    component: JogosEdicaoComponent
+    component: JogosEdicaoComponent,
+    resolve: { jogo: JogoResolver }
   }
 ];
 

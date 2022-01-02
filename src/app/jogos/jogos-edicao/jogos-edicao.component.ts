@@ -31,7 +31,8 @@ export class JogosEdicaoComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.queryParams.id
-    this.getJogo();
+    this.jogo = this.activatedRoute.snapshot.data.jogo;
+    this.atualizaForm();
   }
 
   onSubmit(): void {
