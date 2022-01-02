@@ -1,5 +1,5 @@
 export interface jogo {
-    _id?: number;
+    _id: string;
     titulo: string;
     descricao: string;
     ano: number;

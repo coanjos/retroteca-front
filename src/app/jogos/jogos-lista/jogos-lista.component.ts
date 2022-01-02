@@ -16,8 +16,10 @@ export class JogosListaComponent implements OnInit {
     this.jogosService.listar().subscribe(listaJogos => this.jogos = listaJogos);
   }
 
-  apagar(id?: number): void {
-    this.jogosService.apagar(id).subscribe()
+  apagar(id: string): void {
+    this.jogosService.apagar(id).subscribe(deletado => {
+      this.jogos = this.jogos.filter(j => j._id !== id)
+    })
   }
 
 }
