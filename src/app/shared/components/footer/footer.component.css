@@ -1,0 +1,9 @@
+.copyright {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
