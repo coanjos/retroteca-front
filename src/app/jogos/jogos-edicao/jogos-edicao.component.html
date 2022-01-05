@@ -1,23 +1,70 @@
-<form [formGroup]="editaJogoForm" (ngSubmit)="onSubmit()">
+<section>
+  <h1 class="text-center mt-3">Editar jogo</h1>
 
-    <label for="titulo">Título: </label>
-    <input id="titulo" type="text" formControlName="titulo">
-  
-    <label for="descricao">Descrição: </label>
-    <textarea id="descricao" formControlName="descricao"></textarea>
+  <div class="form-group has-success has-danger">
 
-    <label for="ano">Ano: </label>
-    <input id="ano" type="text" formControlName="ano">
-  
-    <label for="autores">Autores: </label>
-    <input id="autores" type="text" formControlName="autores">
+    <form [formGroup]="editaJogoForm" (ngSubmit)="onSubmit()">
 
-    <label for="generos">Gêneros: </label>
-    <input id="generos" type="text" formControlName="generos">
-  
-    <label for="capas">Capas: </label>
-    <input id="capas" type="text" formControlName="capas">
+      <fieldset>
+        <label class="form-label mt-4" for="titulo">Titulo</label>
+        <input [ngClass]="{ 
+            'is-invalid': !editaJogoForm.controls.titulo.valid
+            && editaJogoForm.controls.titulo.touched, 
+            'is-valid': editaJogoForm.controls.titulo.valid 
+          }" class="form-control" id="titulo" type="text" formControlName="titulo">
+        <div class="invalid-feedback">Insira um título.</div>
+      </fieldset>
 
-    <button>Editar</button>
-  
-  </form>
+      <fieldset>
+        <label class="form-label mt-4" for="descricao">Descrição</label>
+        <textarea [ngClass]="{ 
+            'is-invalid': !editaJogoForm.controls.descricao.valid
+            && editaJogoForm.controls.descricao.touched, 
+            'is-valid': editaJogoForm.controls.descricao.valid 
+          }" class="form-control" id="descricao" type="text" formControlName="descricao" rows="5"></textarea>
+        <div class="invalid-feedback">Insira uma descrição.</div>
+      </fieldset>
+
+      <fieldset>
+        <label for="ano" class="form-label mt-4">Ano</label>
+        <input [ngClass]="{
+         'is-invalid': !editaJogoForm.controls.ano.valid
+         && editaJogoForm.controls.ano.touched,
+         'is-valid': editaJogoForm.controls.ano.valid 
+        }" class="form-control" id="ano" type="number" formControlName="ano">
+        <div class="invalid-feedback">Insira um ano valido.</div>
+      </fieldset>
+
+      <fieldset>
+        <label class="form-label mt-4" for="autores">Autores</label>
+        <input [ngClass]="{ 
+            'is-invalid': !editaJogoForm.controls.autores.valid
+            && editaJogoForm.controls.autores.touched, 
+            'is-valid': editaJogoForm.controls.autores.valid 
+          }" class="form-control" id="autores" type="text" formControlName="autores">
+        <div class="invalid-feedback">Insira pelo menos um autor.</div>
+      </fieldset>
+
+      <fieldset>
+        <label class="form-label mt-4" for="generos">Gêneros</label>
+        <input [ngClass]="{ 
+              'is-invalid': !editaJogoForm.controls.generos.valid
+              && editaJogoForm.controls.generos.touched, 
+              'is-valid': editaJogoForm.controls.generos.valid 
+            }" class="form-control" id="generos" type="text" formControlName="generos">
+        <div class="invalid-feedback">Insira pelo menos um gênero.</div>
+      </fieldset>
+
+      <fieldset>
+        <label class="form-label mt-4" for="capas">Capas: </label>
+        <input id="capas" class="form-control" type="text" formControlName="capas">
+      </fieldset>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-warning btn-lg" [disabled]="!editaJogoForm.valid">Editar</button>
+      </div>
+
+    </form>
+
+  </div>
+</section>
