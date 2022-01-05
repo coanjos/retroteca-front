@@ -11,11 +11,11 @@ import { JogosService } from '../services/jogos.service';
 export class JogosRegistroComponent implements OnInit {
   jogoForm = new FormGroup({
     titulo: new FormControl('', [Validators.required]),
-    descricao: new FormControl(''), // colocar required
-    ano: new FormControl(''), // required, number, min 1954
-    autores: new FormControl([]), // required
-    generos: new FormControl([]), // required
-    capas: new FormControl([]) // nenhum
+    descricao: new FormControl('', [Validators.required]),
+    ano: new FormControl('', [Validators.required, Validators.min(1954)]), 
+    autores: new FormControl([], [Validators.required]), 
+    generos: new FormControl([], [Validators.required]), 
+    capas: new FormControl([])
   })
 
   constructor(
