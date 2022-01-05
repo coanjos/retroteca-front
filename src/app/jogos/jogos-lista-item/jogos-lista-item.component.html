@@ -1,1 +1,18 @@
-<p>jogos-lista-item works!</p>
+<div class="card text-white bg-primary mb-3 mt-4" style="max-width: 20rem;">
+    <div class="card-header">NES</div>
+    <div class="card-body">
+        <h4 class="card-title">{{ jogo.titulo }}</h4>
+        <p class="card-text">{{ jogo.descricao }}</p>
+        <p>{{ jogo.ano }}</p>
+        <p>{{ jogo.autores | json }}</p>
+        <p>{{ jogo.generos | json }}</p>
+
+        <p>{{ jogo._id }}</p>
+    </div>
+    <div class="card-footer text-center">
+        <button [routerLink]="['/jogos/edicao']" [queryParams]="{ id: jogo._id }"
+            class="btn btn-outline-warning btn-sm">Editar</button>
+        <button class="btn btn-outline-info btn-sm">Comentar</button>
+        <button (click)="apagar(jogo._id)" class="btn btn-outline-danger btn-sm">Apagar</button>
+    </div>
+</div>
