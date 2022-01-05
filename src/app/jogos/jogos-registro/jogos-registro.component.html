@@ -1,23 +1,70 @@
-<form [formGroup]="jogoForm" (ngSubmit)="onSubmit()">
+<section>
+  <h1 class="text-center mt-3">Cadastrar um jogo</h1>
 
-    <label for="titulo">Título: </label>
-    <input id="titulo" type="text" formControlName="titulo">
-  
-    <label for="descricao">Descrição: </label>
-    <textarea id="descricao" formControlName="descricao"></textarea>
+  <div class="form-group has-success has-danger">
 
-    <label for="ano">Ano: </label>
-    <input id="ano" type="text" formControlName="ano">
-  
-    <label for="autores">Autores: </label>
-    <input id="autores" type="text" formControlName="autores">
+    <form [formGroup]="jogoForm" (ngSubmit)="onSubmit()">
 
-    <label for="generos">Gêneros: </label>
-    <input id="generos" type="text" formControlName="generos">
-  
-    <label for="capas">Capas: </label>
-    <input id="capas" type="text" formControlName="capas">
+      <fieldset>
+        <label class="form-label mt-4" for="titulo">Titulo</label>
+        <input [ngClass]="{ 
+            'is-invalid': !jogoForm.controls.titulo.valid
+            && jogoForm.controls.titulo.touched, 
+            'is-valid': jogoForm.controls.titulo.valid 
+          }" class="form-control" id="titulo" type="text" formControlName="titulo">
+        <div class="invalid-feedback">Insira um título.</div>
+      </fieldset>
 
-    <button>Registrar</button>
-  
-  </form>
+      <fieldset>
+        <label class="form-label mt-4" for="descricao">Descrição</label>
+        <textarea [ngClass]="{ 
+            'is-invalid': !jogoForm.controls.descricao.valid
+            && jogoForm.controls.descricao.touched, 
+            'is-valid': jogoForm.controls.descricao.valid 
+          }" class="form-control" id="descricao" type="text" formControlName="descricao" rows="5"></textarea>
+        <div class="invalid-feedback">Insira uma descrição.</div>
+      </fieldset>
+
+      <fieldset>
+        <label for="ano" class="form-label mt-4">Ano</label>
+        <input [ngClass]="{
+         'is-invalid': !jogoForm.controls.ano.valid
+         && jogoForm.controls.ano.touched,
+         'is-valid': jogoForm.controls.ano.valid 
+        }" class="form-control" id="ano" type="number" formControlName="ano">
+        <div class="invalid-feedback">Insira um ano valido.</div>
+      </fieldset>
+
+      <fieldset>
+        <label class="form-label mt-4" for="autores">Autores</label>
+        <input [ngClass]="{ 
+            'is-invalid': !jogoForm.controls.autores.valid
+            && jogoForm.controls.autores.touched, 
+            'is-valid': jogoForm.controls.autores.valid 
+          }" class="form-control" id="autores" type="text" formControlName="autores">
+        <div class="invalid-feedback">Insira pelo menos um autor.</div>
+      </fieldset>
+
+      <fieldset>
+        <label class="form-label mt-4" for="generos">Gêneros</label>
+        <input [ngClass]="{ 
+              'is-invalid': !jogoForm.controls.generos.valid
+              && jogoForm.controls.generos.touched, 
+              'is-valid': jogoForm.controls.generos.valid 
+            }" class="form-control" id="generos" type="text" formControlName="generos">
+        <div class="invalid-feedback">Insira pelo menos um gênero.</div>
+      </fieldset>
+
+      <fieldset>
+        <label class="form-label mt-4" for="capas">Capas: </label>
+        <input id="capas" class="form-control" type="text" formControlName="capas">
+      </fieldset>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-success btn-lg" [disabled]="!jogoForm.valid">Registrar</button>
+      </div>
+
+    </form>
+
+  </div>
+</section>

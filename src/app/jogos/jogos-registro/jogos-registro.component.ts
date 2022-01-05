@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JogosService } from '../services/jogos.service';
 
@@ -10,14 +10,13 @@ import { JogosService } from '../services/jogos.service';
 })
 export class JogosRegistroComponent implements OnInit {
   jogoForm = new FormGroup({
-    titulo: new FormControl(''),
-    descricao: new FormControl(''),
-    ano: new FormControl(''),
-    autores: new FormControl([]),
-    generos: new FormControl([]),
+    titulo: new FormControl('', [Validators.required]),
+    descricao: new FormControl('', [Validators.required]),
+    ano: new FormControl('', [Validators.required, Validators.min(1954)]), 
+    autores: new FormControl([], [Validators.required]), 
+    generos: new FormControl([], [Validators.required]), 
     capas: new FormControl([])
   })
-
 
   constructor(
     private jogoService: JogosService,
