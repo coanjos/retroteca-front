@@ -1,23 +1,55 @@
-<form [formGroup]="jogoForm" (ngSubmit)="onSubmit()">
+<section>
+  <div class="form-group has-success has-danger">
+
+    <form [formGroup]="jogoForm" (ngSubmit)="onSubmit()">
+
+      <fieldset>
+        <label class="form-label mt-4" for="titulo">Titulo</label>
+        <input
+          [ngClass]="{ 
+            'is-invalid': !jogoForm.controls.titulo.valid
+            && jogoForm.controls.titulo.touched, 
+            'is-valid': jogoForm.controls.titulo.valid 
+          }"
+          class="form-control" id="titulo" type="text" formControlName="titulo">
+        <div class="invalid-feedback">Insira um título.</div>      
+      </fieldset>      
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-success btn-lg" [disabled]="!jogoForm.valid">Registrar</button>
+      </div>
+
+    </form>
+
+  </div>
+
+
+
+  <!-- <form [formGroup]="jogoForm" (ngSubmit)="onSubmit()">
 
     <label for="titulo">Título: </label>
     <input id="titulo" type="text" formControlName="titulo">
-  
+
     <label for="descricao">Descrição: </label>
     <textarea id="descricao" formControlName="descricao"></textarea>
 
     <label for="ano">Ano: </label>
     <input id="ano" type="text" formControlName="ano">
-  
+
     <label for="autores">Autores: </label>
     <input id="autores" type="text" formControlName="autores">
 
     <label for="generos">Gêneros: </label>
     <input id="generos" type="text" formControlName="generos">
-  
+
     <label for="capas">Capas: </label>
     <input id="capas" type="text" formControlName="capas">
 
     <button>Registrar</button>
-  
-  </form>
+
+  </form> -->
+
+  <div>
+    {{ jogoForm.value | json }}
+  </div>
+</section>
