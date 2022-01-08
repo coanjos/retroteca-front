@@ -18,6 +18,7 @@ import { JogosEdicaoComponent } from './jogos-edicao/jogos-edicao.component';
     JogosRoutingModule,
     HttpClientModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports: [JogosListaItemComponent]
 })
 export class JogosModule { }

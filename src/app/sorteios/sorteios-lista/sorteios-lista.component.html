@@ -1,0 +1,8 @@
+<section>
+
+    <h1 class="text-center mt-3">Historico de sorteios</h1>
+    
+    <div class="row justify-content-center">
+        <app-sorteios-lista-item *ngFor="let sorteio of sorteios" [ngClass]="{'bg-secondary' : sorteio.ativo, 'bg-dark' : !sorteio.ativo}" class="col-xs-1 col-md-3" [sorteio]="sorteio"></app-sorteios-lista-item>
+    </div>
+</section>
