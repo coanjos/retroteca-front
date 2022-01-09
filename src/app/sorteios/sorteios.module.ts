@@ -6,9 +6,10 @@ import { SorteiosRoutingModule } from './sorteios-routing.module';
 import { SorteiosListaComponent } from './sorteios-lista/sorteios-lista.component';
 import { JogosModule } from '../jogos/jogos.module';
 import { SorteiosListaItemComponent } from './sorteios-lista-item/sorteios-lista-item.component';
+import { SorteiosSortearComponent } from './sorteios-sortear/sorteios-sortear.component';
 
 @NgModule({
-  declarations: [SorteiosListaComponent, SorteiosListaItemComponent],
+  declarations: [SorteiosListaComponent, SorteiosListaItemComponent, SorteiosSortearComponent],
   imports: [
     CommonModule,
     SorteiosRoutingModule,
