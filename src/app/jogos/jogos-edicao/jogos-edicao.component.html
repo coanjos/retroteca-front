@@ -56,9 +56,9 @@
       </fieldset>
 
       <fieldset>
-        <label class="form-label mt-4" for="capas">Capas: </label>
-        <input id="capas" class="form-control" type="text" formControlName="capas">
-      </fieldset>
+        <label class="form-label mt-4" for="capas">Capa: </label>
+        <input type="file" class="form-control" id="capas" accept="image/*" (change)="onImagemMudada($event)">
+      </fieldset>   
 
       <div class="d-grid gap-2">
         <button class="btn btn-success btn-lg" [disabled]="!editaJogoForm.valid">Editar</button>

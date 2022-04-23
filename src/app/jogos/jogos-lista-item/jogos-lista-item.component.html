@@ -2,12 +2,11 @@
     <div class="card-header">NES</div>
     <div class="card-body">
         <h4 class="card-title">{{ jogo.titulo }}</h4>
+        <img class="imagem" [attr.src]="imageToShow" *ngIf="imageToShow">
         <p class="card-text">{{ jogo.descricao }}</p>
-        <p>{{ jogo.ano }}</p>
-        <p>{{ jogo.autores | json }}</p>
-        <p>{{ jogo.generos | json }}</p>
-
-        <p>{{ jogo._id }}</p>
+        <p><strong>Ano: </strong>{{ jogo.ano }}</p>
+        <p><strong>Autores: </strong><span *ngFor="let autor of jogo.autores">{{ autor }}</span></p>
+        <p><strong>Gêneros: </strong><span *ngFor="let genero of jogo.generos">{{ genero }}</span></p>
     </div>
     <div class="card-footer text-center">
         <button [routerLink]="['/jogos/edicao']" [queryParams]="{ id: jogo._id }"
