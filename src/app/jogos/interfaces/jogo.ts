@@ -5,5 +5,5 @@ export interface jogo {
     ano: number;
     autores: string[];
     generos: string[];
-    capas: string[];
+    capa: string;
 }

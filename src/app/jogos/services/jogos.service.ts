@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { jogo } from '../interfaces/jogo';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { FilenameResponse } from '../interfaces/filename-response';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,13 @@ export class JogosService {
 
   atualizar(id: string, jogo: jogo): Observable<jogo>{
     return this.httpClient.patch<jogo>(`${environment.retrotecaApiUrl}/jogos/${id}`, jogo);
+  }
+
+  getCapa(capa: string): Observable<Blob> {
+    return this.httpClient.get(`${environment.retrotecaApiUrl}/jogos/capas/${capa}`, { responseType: 'blob' });
+  }
+
+  uploadCapa(uploadData: FormData): Observable<FilenameResponse> {
+    return this.httpClient.post<FilenameResponse>(`${environment.retrotecaApiUrl}/jogos/capas`, uploadData);    
   }
 }

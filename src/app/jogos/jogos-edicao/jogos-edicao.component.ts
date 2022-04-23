@@ -12,7 +12,7 @@ import { jogo } from '../interfaces/jogo';
 })
 export class JogosEdicaoComponent implements OnInit {
   id: string = '';
-  jogo: jogo = { titulo: '', ano: 0, _id: '', descricao: '', autores: [], generos: [], capas: [] };
+  jogo: jogo = { titulo: '', ano: 0, _id: '', descricao: '', autores: [], generos: [], capa: '' };
 
   editaJogoForm = new FormGroup({
     titulo: new FormControl('', [Validators.required]),
@@ -20,8 +20,10 @@ export class JogosEdicaoComponent implements OnInit {
     ano: new FormControl('', [Validators.required, Validators.min(1954)]),
     autores: new FormControl([], [Validators.required]),
     generos: new FormControl([], [Validators.required]),
-    capas: new FormControl([])
+    capa: new FormControl('')
   })
+
+  arquivoSelecionado!: File;
 
   constructor(
     private jogoService: JogosService,
@@ -52,7 +54,20 @@ export class JogosEdicaoComponent implements OnInit {
     this.editaJogoForm.controls.ano.setValue(this.jogo.ano);
     this.editaJogoForm.controls.autores.setValue(this.jogo.autores);
     this.editaJogoForm.controls.generos.setValue(this.jogo.generos);
-    this.editaJogoForm.controls.capas.setValue(this.jogo.capas);
-  } 
+    this.editaJogoForm.controls.capa.setValue(this.jogo.capa);
+  }
+  
+  onImagemMudada(event: Event) : void  {
+    const input = event.target as HTMLInputElement;
+    this.arquivoSelecionado = <File>input.files![0];
+
+    this.onUploadImagem()
+  }
+
+  onUploadImagem() {
+    const uploadData = new FormData();
+    uploadData.append('capa', this.arquivoSelecionado, this.arquivoSelecionado.name);
+    this.jogoService.uploadCapa(uploadData).subscribe(data => this.editaJogoForm.controls.capa.setValue(data.filename));
+  }
 
 }

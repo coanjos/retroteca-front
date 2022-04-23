@@ -7,7 +7,7 @@ import { sorteio } from '../interfaces/sorteio';
   styleUrls: ['./sorteios-lista-item.component.css']
 })
 export class SorteiosListaItemComponent implements OnInit {
-  @Input() sorteio: sorteio = { _id: '', jogo: {_id: '',titulo: '', descricao: '', ano: 0, capas: [], generos: [], autores: []}, ativo: false, sorteadoEm: new Date};
+  @Input() sorteio: sorteio = { _id: '', jogo: {_id: '',titulo: '', descricao: '', ano: 0, capa: '', generos: [], autores: []}, ativo: false, sorteadoEm: new Date};
   constructor() { }
 
   ngOnInit(): void {

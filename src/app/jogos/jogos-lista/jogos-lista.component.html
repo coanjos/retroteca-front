@@ -2,10 +2,10 @@
 
     <h1 class="text-center mt-3">Jogos</h1>
 
+    <button class="btn btn-info btn-lg" [routerLink]="['/jogos/registro']">Novo Jogo</button>
+
     <div class="row justify-content-center">
         <app-jogos-lista-item (apagarEvent)="apagar($event)" *ngFor="let jogo of jogos" class="col-xs-1 col-md-3" [jogo]="jogo"></app-jogos-lista-item>
     </div>
-
-    <button class="btn btn-info btn-lg" [routerLink]="['/jogos/registro']">Novo Jogo</button>
 
 </section>

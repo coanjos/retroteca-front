@@ -1,6 +1,8 @@
 <section>
   <h1 class="text-center mt-3">Cadastrar um jogo</h1>
 
+  <p>{{ jogoForm.value | json }}</p>
+
   <div class="form-group has-success has-danger">
 
     <form [formGroup]="jogoForm" (ngSubmit)="onSubmit()">
@@ -56,9 +58,9 @@
       </fieldset>
 
       <fieldset>
-        <label class="form-label mt-4" for="capas">Capas: </label>
-        <input id="capas" class="form-control" type="text" formControlName="capas">
-      </fieldset>
+        <label class="form-label mt-4" for="capas">Capa: </label>
+        <input type="file" class="form-control" id="capas" accept="image/*" (change)="onImagemMudada($event)">
+      </fieldset>      
 
       <div class="d-grid gap-2">
         <button class="btn btn-success btn-lg" [disabled]="!jogoForm.valid">Registrar</button>
