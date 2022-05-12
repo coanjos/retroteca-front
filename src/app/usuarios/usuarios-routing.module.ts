@@ -6,10 +6,6 @@ import { UsuariosRegistroComponent } from './usuarios-registro/usuarios-registro
 
 const routes: Routes = [
   {
-    path: '',
-    component: UsuariosListaComponent
-  },
-  {
     path: 'registro',
     component: UsuariosRegistroComponent
   },
