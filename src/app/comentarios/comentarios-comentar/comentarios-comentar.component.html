@@ -1,0 +1,12 @@
+<div>
+    <form [formGroup]="comentarioForm" class="mx-1 mx-md-4 text-center" (ngSubmit)="onSubmit()">
+        <textarea [ngClass]="{ 
+            'is-invalid': !comentarioForm.controls.texto.valid
+            && comentarioForm.controls.texto.touched, 
+            'is-valid': comentarioForm.controls.texto.valid 
+          }"
+        name="texto" id="texto" cols="50" rows="10" formControlName="texto" class="form-control"></textarea>
+        <br>
+        <button class="btn btn-primary btn-lg" [disabled]="!comentarioForm.valid">Comentar</button>
+    </form>
+</div>

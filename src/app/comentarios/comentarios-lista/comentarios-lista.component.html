@@ -1,0 +1,7 @@
+<section>
+    <app-comentarios-comentar></app-comentarios-comentar>
+</section>
+<br>
+<section>
+    <app-comentarios-lista-item *ngFor="let comentario of comentarios" class="comentario text-center bg-primary" [comentario]="comentario"></app-comentarios-lista-item>
+</section>

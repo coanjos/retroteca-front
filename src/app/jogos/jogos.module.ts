@@ -9,6 +9,7 @@ import { JogosDetalheComponent } from './jogos-detalhe/jogos-detalhe.component';
 import { JogosRegistroComponent } from './jogos-registro/jogos-registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JogosEdicaoComponent } from './jogos-edicao/jogos-edicao.component';
+import { ComentariosModule } from '../comentarios/comentarios.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { JogosEdicaoComponent } from './jogos-edicao/jogos-edicao.component';
     CommonModule,
     JogosRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComentariosModule
   ],
   exports: [JogosListaItemComponent]
 })
