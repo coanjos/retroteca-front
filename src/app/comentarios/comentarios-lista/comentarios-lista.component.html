@@ -1,7 +1,16 @@
-<section>
-    <app-comentarios-comentar></app-comentarios-comentar>
-</section>
+<div>
+    <form [formGroup]="comentarioForm" class="mx-1 mx-md-4 text-center " (ngSubmit)="onSubmit()">
+        <textarea [ngClass]="{ 
+            'is-invalid': !comentarioForm.controls.texto.valid
+            && comentarioForm.controls.texto.touched, 
+            'is-valid': comentarioForm.controls.texto.valid 
+          }"
+        name="texto" id="texto" cols="25" rows="10" formControlName="texto" class="form-control comentarioForm"></textarea>
+        <br>
+        <button class="btn btn-primary btn-lg" [disabled]="!comentarioForm.valid">Comentar</button>
+    </form>
+</div>
 <br>
 <section>
-    <app-comentarios-lista-item *ngFor="let comentario of comentarios" class="comentario text-center bg-primary" [comentario]="comentario"></app-comentarios-lista-item>
+    <app-comentarios-lista-item (apagarEvent)="apagar($event)" *ngFor="let comentario of comentarios.reverse()" class="comentario text-center bg-primary" [comentario]="comentario"></app-comentarios-lista-item>
 </section>

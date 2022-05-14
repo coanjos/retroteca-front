@@ -6,17 +6,16 @@ import { ComentariosListaComponent } from './comentarios-lista/comentarios-lista
 import { ComentariosListaItemComponent } from './comentarios-lista-item/comentarios-lista-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ComentariosComentarComponent } from './comentarios-comentar/comentarios-comentar.component';
 
 
 @NgModule({
-  declarations: [ComentariosListaComponent, ComentariosListaItemComponent, ComentariosComentarComponent],
+  declarations: [ComentariosListaComponent, ComentariosListaItemComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
     ComentariosRoutingModule,
   ],
-  exports: [ComentariosListaComponent, ComentariosListaItemComponent, ComentariosComentarComponent]
+  exports: [ComentariosListaComponent, ComentariosListaItemComponent]
 })
 export class ComentariosModule { }
