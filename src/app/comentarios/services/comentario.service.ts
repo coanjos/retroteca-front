@@ -20,4 +20,8 @@ export class ComentarioService {
     
     return this.httpClient.post<comentario>(`${environment.retrotecaApiUrl}/comentarios`, comentario);
   }
+
+  apagar(id: string): Observable<comentario> {
+    return this.httpClient.delete<comentario>(`${environment.retrotecaApiUrl}/comentarios/${id}`)
+  }
 }

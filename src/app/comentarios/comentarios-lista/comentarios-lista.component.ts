@@ -14,9 +14,12 @@ export class ComentariosListaComponent implements OnInit {
   id: string = '';
   comentarios: comentario[] = [];
 
+  comentarioForm = new FormGroup({
+    texto: new FormControl('', [Validators.required])
+  })
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
     private comentariosService: ComentarioService
     ) { }
 
@@ -26,5 +29,15 @@ export class ComentariosListaComponent implements OnInit {
     this.comentariosService.getComentariosJogo(this.id).subscribe(listaComentarios => this.comentarios = listaComentarios)
   }
 
+  apagar(id: string): void {    
+    this.comentariosService.apagar(id).subscribe(() => {
+      this.comentarios = this.comentarios.filter(j => j._id !== id)
+    })
+  }
+
+  onSubmit() {
+    this.comentariosService.comentar(this.id, this.comentarioForm.value).subscribe(data => this.comentarios.push(data));
+    this.comentarioForm.reset()
+  }
 
 }

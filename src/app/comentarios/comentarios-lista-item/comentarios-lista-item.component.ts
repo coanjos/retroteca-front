@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { comentario } from '../interfaces/comentario';
+import { ComentarioService } from '../services/comentario.service';
 
 @Component({
   selector: 'app-comentarios-lista-item',
@@ -8,9 +9,14 @@ import { comentario } from '../interfaces/comentario';
 })
 export class ComentariosListaItemComponent implements OnInit {
   @Input() comentario: comentario = {_id: '', texto: '', jogo: ''};
-  constructor() { }
+  @Output() apagarEvent = new EventEmitter<string>();
+  
+  constructor(private comentariosService: ComentarioService) { }
 
   ngOnInit(): void {
   }
 
+  apagar(id: string) {
+    this.apagarEvent.emit(id);
+  }
 }
