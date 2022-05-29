@@ -9,10 +9,10 @@
         <p><strong>Gêneros: </strong><span *ngFor="let genero of jogo.generos">{{ genero }}</span></p>
     </div>
     <div class="card-footer text-center">
-        <button [routerLink]="['/jogos/edicao']" [queryParams]="{ id: jogo._id }"
+        <button *ngIf="isLogado" [routerLink]="['/jogos/edicao']" [queryParams]="{ id: jogo._id }"
             class="btn btn-outline-warning btn-sm">Editar</button>
         <button [routerLink]="['/comentarios']" [queryParams]="{ id: jogo._id }"
             class="btn btn-outline-info btn-sm">Comentar</button>
-        <button (click)="apagar(jogo._id)" class="btn btn-outline-danger btn-sm">Apagar</button>
+        <button *ngIf="isLogado" (click)="apagar(jogo._id)" class="btn btn-outline-danger btn-sm">Apagar</button>
     </div>
 </div>
